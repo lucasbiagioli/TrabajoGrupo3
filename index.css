@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+:root {
+  --color1: #b243f7;
+  --color2: #7b3ce3;
+  --color3: #4447e2;
+  --background-color: #171a23;
+  --disabled-color: #3f4857;
+  --light-disabled-color: #1d202b;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--color1) 0%, var(--color2) 100%);
+  border: none;
+  border-radius: 3rem;
+  padding: 0.4rem 3rem;
+  font-family: "Kanit", sans-serif;
+}
+
+.badge-primary {
+  color: var(--color1);
+  padding: 0;
+}
+
+.nav-item {
+  margin: auto 1rem;
+}
+
+nav a {
+  color: white;
+}
+nav a:hover {
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.title-font,
+.subscription form input[type=text]::placeholder,
+.advanced-search input[type=text],
+.advanced-search select {
+  font-family: "Kanit", sans-serif;
+}
+
+.poster {
+  width: 70%;
+  border-radius: 1rem;
+}
+
+.rating i {
+  color: var(--color1);
+}
+
+.description {
+  font-size: small;
+  color: var(--disabled-color);
+}
+
+.full-screen {
+  min-height: 100vh;
+}
+
+.advanced-search {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 5px;
+  margin: 2rem 0;
+}
+.advanced-search .form-group {
+  background-color: var(--light-disabled-color);
+  border-radius: 3rem;
+}
+.advanced-search input[type=text],
+.advanced-search select {
+  background-color: #00000000;
+  border: none;
+  color: white;
+}
+.advanced-search input[type=text] {
+  padding: 0.4rem 2rem;
+}
+.advanced-search select {
+  height: 100%;
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.advanced-search input[type=text]::placeholder {
+  color: white;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1.5rem;
+}
+.movie-grid .movie-thumbnail {
+  position: relative;
+}
+.movie-grid .movie-thumbnail img {
+  width: 100%;
+}
+.movie-grid .movie-thumbnail .detail {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  background: linear-gradient(0deg, var(--light-disabled-color) 0%, #00000000 100%);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.pagination .page {
+  background-color: var(--color1);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin: 0 0.2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.pagination .transparent {
+  background-color: #00000000;
+}
+
+.movie-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 1.5rem;
+}
+.movie-carousel .movie-thumbnail {
+  background-color: var(--light-disabled-color);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: small;
+}
+.movie-carousel .movie-thumbnail img {
+  width: 50%;
+}
+.movie-carousel .movie-thumbnail .detail {
+  width: 50%;
+  padding: 1rem;
+}
+.movie-carousel .movie-thumbnail .detail .rating {
+  color: white;
+  font-size: small;
+}
+
+.subscription {
+  background-color: var(--disabled-color);
+}
+.subscription img {
+  width: 100%;
+  height: 300px;
+  object-position: 20% 10%;
+  object-fit: cover;
+}
+.subscription form {
+  display: flex;
+  flex-direction: column;
+}
+.subscription form input[type=text] {
+  background-color: var(--light-disabled-color);
+  border: none;
+  border-radius: 3rem;
+  padding: 0.4rem 1rem;
+  width: 60%;
+}
+.subscription form input[type=text]::placeholder {
+  color: white;
+}
+
+footer .logo {
+  font-weight: bolder;
+}
+footer ul {
+  list-style-type: none;
+}
+footer ul .nav-link {
+  color: white;
+}
+footer ul .nav-link:hover {
+  color: white;
+}
+footer .social_media * {
+  padding: 0 0.2rem;
+}
+
