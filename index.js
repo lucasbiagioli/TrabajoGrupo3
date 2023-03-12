@@ -803,6 +803,7 @@ searchInputDOM.onkeyup = (e) => {
     let userFilter = (e.target.value).toLowerCase().trim();
     filteredMovies = listMovies.filter((e) => e.Title.toLowerCase().trim().includes(userFilter))
     generateMovieArticleHTML(filteredMovies);
+    console.log(filteredMovies);
 }
 
 
