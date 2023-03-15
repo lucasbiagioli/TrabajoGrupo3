@@ -9,7 +9,8 @@ let userList = []
 const storageUserlist = localStorage.getItem('users')
 if (storageUserlist) {
     userList=JSON.parse(storageUserlist)
-}    
+}
+    
 registerFormDOM.onsubmit = (e) =>{
     e.preventDefault()
     let warnings = ""
