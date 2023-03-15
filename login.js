@@ -33,3 +33,4 @@ function validarLogin(e) {
 			location.href = 'index.html';
 		}
 	}
+	console.log("object");
