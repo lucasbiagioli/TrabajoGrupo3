@@ -1,3 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+:root {
+  --color1: #b243f7;
+  --color2: #7b3ce3;
+  --color3: #4447e2;
+  --background-color: #171a23;
+  --disabled-color: #3f4857;
+  --light-disabled-color: #1d202b;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--color1) 0%, var(--color2) 100%);
+  border: none;
+  border-radius: 3rem;
+  padding: 0.4rem 3rem;
+  font-family: "Kanit", sans-serif;
+}
+
+
+.badge-primary {
+  color: var(--color1);
+  padding: 0;
+}
+
+.nav-item {
+  margin: auto 1rem;
+}
+
+nav a {
+  color: black;
+}
+nav a:hover {
+  color: white;
+}
+
+
+footer .logo {
+  font-weight: bolder;
+  color: white;
+}
+footer ul {
+  list-style-type: none;
+}
+footer ul .nav-link {
+  color: white;
+}
+footer ul .nav-link:hover {
+  color: white;
+}
+footer .social_media {
+  padding: 0 0.2rem;
+}
+
+
 .fav {
     color: yellow;
 }
