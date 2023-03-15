@@ -8,30 +8,20 @@ if (storageMovie) {
     listMovies = JSON.parse(storageMovie);
 }
 
-//funcion para cargar la pelicula editada
 function loadEditMovie(movie) {
-    console.log(movie);
-    document.querySelector(
-        "#exampleModalLabel"
-    ).innerText = `Edit ${movie.Title}`;
+    document.getElementById("exampleModalLabel").innerText = `Edit ${movie.Title}`;
+    document.getElementById("movieTitleForm").value = movie.Title
+    document.getElementById("genreForm").value = movie.Genre
+    document.getElementById("plotForm").value = movie.Plot
+    document.getElementById("movieImgForm").value = movie.Images[0]
+    document.getElementById("publishMovieForm").checked = movie.Available  
     movieToEdit = movie;
-    console.log(movieToEdit);
-    const idDOM = document.getElementById("movieIdForm");
-    idDOM.value = movie.id;
-    const titleDOM = document.getElementById("movieTitleForm");
-    titleDOM.value = movie.Title;
-    const genreDOM = document.getElementById("genreForm");
-    genreDOM.value = movie.Genre;
-    const imgDOM = document.getElementById("movieImgForm");
-    imgDOM.value = movie.Images;
-    const plotDOM = document.getElementById("plotForm");
-    plotDOM.value = movie.Plot; 
 }
 
-//funcion para eliminar pelicula
+
 function deleteMovie(id) {
     swal({
-        title: "Estas seguro que quieres eliminar?",
+        title: "Are you sure?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -40,20 +30,24 @@ function deleteMovie(id) {
             listMovies = listMovies.filter((m) => m.id != id);
             localStorage.setItem("listMovies", JSON.stringify(listMovies));
             generateTableMovies(listMovies);
-            swal("Poof! La Película fue eliminada con exito!", {
+            swal("Poof! The movie was successfully removed!", {
                 icon: "success",
             });
         } else {
-            swal("Tu Película fue salvada!");
+            swal("The movie was saved!");
         }
     });
 }
 
 function favoriteMovie(id) {
-    const movie = listMovies.find((m) => m.id == id);
-    movie.Principal = !movie.Principal;
-    console.log(movie);
-    // console.log(listMovies);
+    listMovies = listMovies.map((m) => {
+        if ( m.id == id ) {
+            m.Principal = true
+        } else {
+            m.Principal = false
+        }
+       return m
+    });
     localStorage.setItem("listMovies", JSON.stringify(listMovies));
     generateTableMovies(listMovies);
 }
@@ -73,23 +67,24 @@ function generateTableMovies(listMovies) {
         tdGenreDOM.classList = "text-center align-middle";
         tdGenreDOM.textContent = movie.Genre.split(",")[0];
         const tdPlopDOM = document.createElement("td");
-        tdPlopDOM.classList = "text-center  align-middle";
+        tdPlopDOM.style.maxWidth = "150px"
+        tdPlopDOM.classList = "text-center align-middle text-truncate ";
         tdPlopDOM.textContent = movie.Plot;
         const tdPublishDOM = document.createElement("td");
         tdPublishDOM.classList = "text-center align-middle";
-        tdPublishDOM.textContent = movie.Delete ? "No" : "Si";
+        tdPublishDOM.textContent = movie.Available ? "Si": "No";
         const tdActionsDOM = document.createElement("td");
-        tdActionsDOM.classList = " align-middle d-flex p-5 ";
+        tdActionsDOM.classList = " align-middle    d-flex p-5 ";
         const btnEditDOM = document.createElement("button");
         btnEditDOM.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
-        btnEditDOM.classList = "btn btn-outline-light me-1";
+        btnEditDOM.classList = "btn btn-outline-light  me-2";
         btnEditDOM.setAttribute("data-bs-toggle", "modal");
         btnEditDOM.setAttribute("data-bs-target", "#movieModal");
         btnEditDOM.onclick = () => {
             loadEditMovie(movie)    };
         const btnDeleteDOM = document.createElement("button");
         btnDeleteDOM.innerHTML = `<span class="fa fa-solid fa-trash"></span>`;
-        btnDeleteDOM.classList = "btn btn-outline-danger me-1";
+        btnDeleteDOM.classList = "btn btn-outline-danger me-2";
         btnDeleteDOM.setAttribute("data-bs-toggle", "modal");
         btnDeleteDOM.setAttribute("data-bs-target", "#confirmDelete");
         btnDeleteDOM.onclick = () => {
@@ -129,20 +124,21 @@ bntNewMovieDOM.onclick = (e) => {
     genreDOM.value = ''
     plotDOM.value = ''
     imgDOM.value = ''
-
     movieToEdit = null;
 };
 
 
 formCRUDMovieDOM.onsubmit = (e) => {
     e.preventDefault();
-    const idDOM = document.getElementById("movieIdForm");
+   // const idDOM = document.getElementById("movieIdForm");
     const titleDOM = document.getElementById("movieTitleForm");
     const genreDOM = document.getElementById("genreForm");
     const plotDOM = document.getElementById("plotForm");
     const imgDOM = document.getElementById("movieImgForm");
+    const publishDOM  = document.getElementById("publishMovieForm");
+
     if (
-        idDOM.value &&
+     //   idDOM.value &&
         titleDOM.value &&
         genreDOM.value &&
         plotDOM.value &&
@@ -150,42 +146,43 @@ formCRUDMovieDOM.onsubmit = (e) => {
     ) {
         if (movieToEdit) {
             const id = listMovies.findIndex((m) => m.id == movieToEdit.id);
-            listMovies[id].id = idDOM.value;
+          //  listMovies[id].id = idDOM.value;
             listMovies[id].Title = titleDOM.value;
             listMovies[id].Genre = genreDOM.value;
             listMovies[id].Plot = plotDOM.value;
             listMovies[id].Images = imgDOM.value;
+            listMovies[id].Available = publishDOM.checked;
+            movieToEdit = null
         } else {
             const newMovie = {
                 id: Date.now(),
                 ComingSoon: true,
                 Title: titleDOM.value,
-                Year: "2016",
-                Rated: "PG-13",
-                Released: "30 Dec 2013",
-                Runtime: "1h 30min",
+                Year: "",
+                Rated: "",
+                Released: "",
+                Runtime: "",
                 Genre: genreDOM.value,
-                Director: "David F. Sandberg",
-                Writer: "N/A",
-                Actors: "Teresa Palmer, Maria Bello, Gabriel Bateman, Alexander DiPersia",
+                Director: "",
+                Writer: "",
+                Actors: "",
                 Plot: plotDOM.value,
-                Language: "English",
-                Country: "USA",
-                Awards: "N/A",
+                Language: "",
+                Country: "",
+                Awards: "",
                 Poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sS5mCrpSXghQl4kh2y3aTN4M74v.jpg",
                 Metascore: "N/A",
                 imdbRating: "N/A",
                 imdbVotes: "N/A",
-                imdbID: "tt332220",
-                Type: "movie",
-                Response: "True",
-                Available: true,
-                Delete: false,
+                imdbID: "",
+                Type: "",
+                Response: "",
+                Available: publishDOM.checked,
+                Delete: "",
                 Principal: false,
                 Trailer: "https://www.youtube.com/watch?v=w1VXHtIqrYU&ab_channel=WarnerBros.PicturesEspa%C3%B1a",
-                Images:imgDOM.value,
+                Images:[imgDOM.value],
             };
-
             listMovies.push(newMovie);
         }
         localStorage.setItem("listMovies", JSON.stringify(listMovies));
