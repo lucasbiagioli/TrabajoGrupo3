@@ -12,7 +12,7 @@
 body {
   background-color: var(--background-color);
   font-family: "Montserrat", sans-serif;
-  color: white;
+
 }
 
 .btn-primary {
@@ -33,7 +33,7 @@ body {
 }
 
 nav a {
-  color: white;
+  color: black;
 }
 nav a:hover {
   color: white;

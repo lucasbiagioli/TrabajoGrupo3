@@ -155,7 +155,7 @@ let listMovies = [{
         Response: "True",
         Available: true,
         Delete: false,
-        Principal: false,
+        Principal: true,
         Trailer: "https://www.youtube.com/watch?v=PaAvUOXUohk&ab_channel=DiamondFilmsLatam",
         Images: [
             "https://images-na.ssl-images-amazon.com/images/M/MV5BNDIwMDIxNzk3Ml5BMl5BanBnXkFtZTgwMTg0MzQ4MDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg",
@@ -189,7 +189,7 @@ let listMovies = [{
         Response: "True",
         Available: true,
         Delete: false,
-        Principal: true,
+        Principal: false,
         Trailer: "https://www.youtube.com/watch?v=NVw3DnN9WoA&ab_channel=WarnerBros.PicturesLatinoam%C3%A9rica",
         Images: [
             "https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NTEwOTMxMV5BMl5BanBnXkFtZTgwMjMyODgxMzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg",
@@ -836,3 +836,8 @@ function generateMovieArticleHTML(listMovies) {
 }
 
 generateMovieArticleHTML(listMovies)
+
+const favMovie = listMovies.find(m => m.Principal)
+
+document.getElementById("favTitleMovie").textContent = favMovie.Title
+document.getElementById("favImgMovie").src = favMovie.Poster
