@@ -22,10 +22,15 @@
       <div class="col-md-6 col-lg-4">
         <form id="registerForm" class="needs-validation" novalidate>
           <div class="mb-3">
+<<<<<<< HEAD
+            <label for="userName" class="form-label">Name:</label>
+            <input type="text" class="form-control"  id="userName" minlength="6" maxlength="30" required placeholder="Name and surname" pattern="[A-Za-z]+" title="Solo se permiten letras">
+=======
             <label for="userName" class="form-label">Username:</label>
             <input type="text" class="form-control"  id="userName" required placeholder="Enter your User Name">
+>>>>>>> 28fe9c1a405fdd79352599ed41f270d325217789
             <div class="invalid-feedback">
-              Nombre y apellido no valido
+              Nombre y apellido no valido (Sólo se permite letras y entre 6 a 30 carácteres)
             </div>
           </div>
           <div class="mb-3">
@@ -37,14 +42,18 @@
           </div>
           <div class="mb-3">
             <label for="userPassword" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="userPassword" required placeholder="Password">
+            <input type="password" class="form-control" id="userPassword" minlength="6" maxlength="30" required placeholder="Password">
             <div class="invalid-feedback">
-              Password no valido
+              Password no valido (mínimo 6 carácteres)
             </div>
           </div>
           <div class="mb-3">
             <label for="confirmPasswor" class="form-label">Confirm Password:</label>
+<<<<<<< HEAD
+            <input type="password" class="form-control" id="confirmPasswor" minlength="6" maxlength="30" required placeholder="Confirm Password">
+=======
             <input type="password" class="form-control" id="confirmPasswor" placeholder="Confirm Password" required>
+>>>>>>> 28fe9c1a405fdd79352599ed41f270d325217789
             <div class="invalid-feedback">
               Confirmacion password y password no coinciden
             </div>
