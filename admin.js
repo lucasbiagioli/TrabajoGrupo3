@@ -1,6 +1,7 @@
 let bntNewMovieDOM = document.getElementById("btnNewMovie");
 let tbodyAdminDOM = document.getElementById("adminTableMovie");
 let formCRUDMovieDOM = document.getElementById("formCRUDMovie");
+let bntLogoutDOM = document.getElementById ("btnLogout")
 let listMovies = [];
 let movieToEdit = null;
 const storageMovie = localStorage.getItem("listMovies");
@@ -22,6 +23,7 @@ function loadEditMovie(movie) {
 function deleteMovie(id) {
     swal({
         title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this file!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -30,7 +32,7 @@ function deleteMovie(id) {
             listMovies = listMovies.filter((m) => m.id != id);
             localStorage.setItem("listMovies", JSON.stringify(listMovies));
             generateTableMovies(listMovies);
-            swal("Poof! The movie was successfully removed!", {
+            swal("Your movie has been deleted!", {
                 icon: "success",
             });
         } else {
@@ -189,5 +191,10 @@ formCRUDMovieDOM.onsubmit = (e) => {
         generateTableMovies(listMovies);
     }
 };
+
+bntLogoutDOM.onclick = (e)=>{
+    localStorage.removeItem("users")
+    window.location.href = 'index.html'
+}
 
 generateTableMovies(listMovies);

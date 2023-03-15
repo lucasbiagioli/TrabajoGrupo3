@@ -841,3 +841,4 @@ const favMovie = listMovies.find(m => m.Principal)
 
 document.getElementById("favTitleMovie").textContent = favMovie.Title
 document.getElementById("favImgMovie").src = favMovie.Poster
+
