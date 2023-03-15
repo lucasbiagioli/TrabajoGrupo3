@@ -1,93 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/8ebf433348.js" crossorigin="anonymous"></script>
-    <title>Admin</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link href="./admin.css" rel="stylesheet" />
+    <title>Admin Rolling Code</title>
+  </head>
 
-<body>
- 
- <section class="container mt-5">
-  <div>
-    <h3>List Movie</h3>
-    <button class="btn btn-success ms-2" id="btnNewMovie" data-bs-toggle="modal" data-bs-target="#productModal">Agregar <span class="fa fa-solid fa-plus"></span></button>
-    <table class="table" id="adminTable" >
-      <thead>
-        <tr>
-          <th scope="col">Code</th>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
-          <th scope="col">Publish</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody id="adminTableMovie">
-        
-      </tbody>
-    </table>
-  </div>
+  <body>
+    <nav class="navbar navbar-dark py-4 title-font">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html"
+          ><img src="/Icons/Icon2.png" alt="" />Rolling Movies</a
+        >
+      </div>
+    </nav>
 
-  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <section class="container mt-5">
+      <h3>List Movies</h3>
+
+      <div class="d-flex justify-content-end mb-4">
+        <button
+          class="btn btn-primary ms-2"
+          id="btnNewMovie"
+          data-bs-toggle="modal"
+          data-bs-target="#movieModal"
+        >
+          New Movie <span class="fa fa-solid fa-plus"></span>
+        </button>
+      </div>
+      <div class="d-flex  justify-content-center">
+        <table class="table " id="adminTable">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">id</th>
+              <th scope="col">Title</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Plot</th>
+              <th scope="col">Publish</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableMovie"></tbody>
+        </table>
+      </div>
+
+      <div
+        class="modal fade"
+        id="movieModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">New Movie</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">New Movie</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
-                <form id="formCRUDMovie">
-                  <div class="mb-3">
-                    <label for="movieCodeForm" class="col-form-label">Code</label>
-                    <input type="text" class="form-control" id="movieCodeForm">
-                  </div>
+              <form id="formCRUDMovie">
+                <div class="mb-3">
+                  <label for="movieIdForm" class="col-form-label">id</label>
+                  <input type="text" class="form-control" id="movieCodeForm" />
+                </div>
 
-                  <div class="mb-3">
-                    <label for="movieTitleForm" class="col-form-label">Title</label>
-                    <input type="text" class="form-control" id="movieTitleForm">
-                  </div>
+                <div class="mb-3">
+                  <label for="movieTitleForm" class="col-form-label"
+                    >Title</label
+                  >
+                  <input type="text" class="form-control" id="movieTitleForm" />
+                </div>
 
-                  <div class="mb-3">
-                    <label for="movieDescriptionForm" class="col-form-label">Description</label>
-                    <textarea class="form-control" id="movieDescriptionForm"></textarea>
-                  </div>
+                <div class="mb-3">
+                  <label for="genreForm" class="form-label">Gender</label>
+                  <select class="form-select" id="plotForm">
+                    <option value="accion">Terror</option>
+                    <option value="terror">Drama</option>
+                    <option value="comedia">Mystery</option>
+                  </select>
+                </div>
 
-                  <div class="mb-3">
-                    <label for="typeOptionForm" class="form-label">Seleccione Categoria</label>
-                    <select class="form-select" id="typeOptionForm">
-                      <option value="accion">Acción</option>
-                      <option value="terror">Terror</option>
-                      <option value="comedia">Comedía</option>
-                    </select>
-                  </div>
-       
+                <div class="mb-3">
+                  <label for="movieDescriptionForm" class="col-form-label"
+                    >Plot</label
+                  >
+                  <textarea class="form-control" id="plotForm"></textarea>
+                </div>
 
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" value="" id="publishMovieForm" >
-            <label class="form-check-label" for="publishMovieForm">
-              Publish
-            </label>
-          </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="publishMovieForm"
+                  />
+                  <label class="form-check-label" for="publishMovieForm">
+                    Publish
+                  </label>
+                </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
-                    </div>
-                  </form>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Save
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    </section>
 
- 
- </section>
-  
+    <!-- <footer class="d-flex justify-content-around py-4 position-absolute bottom-0 w-100 p-3 bg-dark bg-gradient">
+  <div class="logo ">Rolling Movies</div>
+  <ul class="d-flex ">
+    <li class="nav-item">
+      <a class="nav-link " href="# ">Popular</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="# ">Films</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="# ">Series</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="# ">Cartoons</a>
+    </li>
 
+  </ul>
+  <div class="social_media d-flex">
+    <a class="nav-link" href="#"><i class="fa fa-facebook "></i></a>
+    <a class="nav-link" href="#"><i class="fa fa-twitter "></i></a>
+    <a class="nav-link" href="#"><i class="fa fa-youtube "></i></a>
+    <a class="nav-link" href="#"><i class="fa fa-instagram "></i></a>
+  </div>
+</footer> -->
 
- <script src="./admin.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/8ebf433348.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./admin.js"></script>
+  </body>
 </html>
