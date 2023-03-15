@@ -26,10 +26,6 @@ registerFormDOM.onsubmit = (e) =>{
     if (!adminEmailDOM.value) {
         ingresar = false    
     }
- 
-    if (!regexadminEmailDOM.test(adminEmailDOM.value)) {
-    ingresar = false
-    }
     if (!adminPasswordDOM.value) {
         ingresar = false
     }
@@ -44,7 +40,7 @@ registerFormDOM.onsubmit = (e) =>{
         userList.push(newuser)
         localStorage.setItem('users',JSON.stringify(userList))
         registerFormDOM.reset();
-        window.location = "login.html"
+        window.location = "./login.html"
     }
   }
 

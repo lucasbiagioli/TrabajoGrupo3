@@ -23,9 +23,9 @@
         <form id="registerForm" class="needs-validation" novalidate>
           <div class="mb-3">
             <label for="userName" class="form-label">Name:</label>
-            <input type="text" class="form-control"  id="userName" required placeholder="Name and surname">
+            <input type="text" class="form-control"  id="userName" minlength="6" maxlength="30" required placeholder="Name and surname" pattern="[A-Za-z]+" title="Solo se permiten letras">
             <div class="invalid-feedback">
-              Nombre y apellido no valido
+              Nombre y apellido no valido (Sólo se permite letras y entre 6 a 30 carácteres)
             </div>
           </div>
           <div class="mb-3">
@@ -37,14 +37,14 @@
           </div>
           <div class="mb-3">
             <label for="userPassword" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="userPassword" required placeholder="Password">
+            <input type="password" class="form-control" id="userPassword" minlength="6" maxlength="30" required placeholder="Password">
             <div class="invalid-feedback">
-              Password no valido
+              Password no valido (mínimo 6 carácteres)
             </div>
           </div>
           <div class="mb-3">
             <label for="confirmPasswor" class="form-label">Confirm Password:</label>
-            <input type="password" class="form-control" id="confirmPasswor" required>
+            <input type="password" class="form-control" id="confirmPasswor" minlength="6" maxlength="30" required placeholder="Confirm Password">
             <div class="invalid-feedback">
               Confirmacion password y password no coinciden
             </div>
@@ -52,7 +52,7 @@
           <div class="d-flex flex-column justify-content-center gap-3">
             <button type="submit" class="btn btn-primary" id="btnRegister">Register</button>
             <span>Already have an account?<a href="/login.html">Log in</a></span>
-            <span>you are administrator?<a href="/Enzo1_220223/adminRegister.html"> Admin register</a></span>
+            <span>you are administrator?<a href="./adminRegister.html"> Admin register</a></span>
           </div>
         </form>
       </div>

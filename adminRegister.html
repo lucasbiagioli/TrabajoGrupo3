@@ -23,7 +23,7 @@
         <form id="registerForm" class="needs-validation" novalidate>
           <div class="mb-3">
             <label for="adminName" class="form-label">Admin name:</label>
-            <input type="text" class="form-control"  id="adminName" required placeholder="Name and surname">
+            <input type="text" class="form-control"  id="adminName" minlength="6" maxlength="30" required placeholder="Name and surname">
             <div class="invalid-feedback">
               Nombre y apellido no valido
             </div>
@@ -37,7 +37,7 @@
           </div>
           <div class="mb-3">
             <label for="adminPassword" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="adminPassword" required placeholder="Password">
+            <input type="password" class="form-control" id="adminPassword" minlength="6" maxlength="30"required placeholder="Password">
             <div class="invalid-feedback">
               Password no valido
             </div>
@@ -49,7 +49,7 @@
                 <div class="toast-header">
                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAURJREFUSEvllcFRwzAQRb+Usca3uAAHTAWEDrwVQAlJBdABoYNQASkBKhAdkBIUZO5wy8iDxcjGGeJxZmJhc0FXef/T/t31Mgx82MD6+FuAjMMUrHgAkHhmpmD5nLLtcx2/l4GMhQLDqad4HaZIm7N2wERYd0HaeFknW+L3M/hXAJkgwqdISZvH2u9eLZIT4YQvwXBHr2bhIL0BZBwswdg1gA+M+JTUVnkD5IlYgJslKbxXIsEMYG5WgMJe0Fu+9raoFLe4BcMa3BDyIAFnL5WgnZPOVz9nprNF34V0U3leQmw54RGsvacsv2kOZGdAaUnVLRWkOk+kzVXbtHsBGhBgZNK6Hr1ksCugywRhVHdMrxkc+/PztqhPgOv18bGCrd9ZbCgzu33S2AdhChQr751gsQH47ODC+dXLDwR7LZYuDxkc8AXldswZZq2o4gAAAABJRU5ErkJggg=="/>
                   <strong class="me-auto">Register</strong>
-                  <small>11 mins ago</small>
+                  <small>Ahora</small>
                   <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
